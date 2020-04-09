@@ -18,6 +18,7 @@ abstract class CommonProductsController extends AdminController
 
         // 筛选出当前类型的商品，默认 ID 倒序排序
         $grid->model()->where('type', $this->getProductType())->orderBy('id', 'desc');
+
         // 调用自定义方法
         $this->customGrid($grid);
 
@@ -32,6 +33,8 @@ abstract class CommonProductsController extends AdminController
         });
 
         return $grid;
+        dd(123);
+
     }
     // 定义一个抽象方法，各个类型的控制器将实现本方法来定义列表应该展示哪些字段
     abstract protected function customGrid(Grid $grid);
