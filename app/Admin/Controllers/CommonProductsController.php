@@ -33,7 +33,6 @@ abstract class CommonProductsController extends AdminController
         });
 
         return $grid;
-        dd(123);
 
     }
     // 定义一个抽象方法，各个类型的控制器将实现本方法来定义列表应该展示哪些字段
@@ -45,6 +44,7 @@ abstract class CommonProductsController extends AdminController
         // 在表单页面中添加一个名为 type 的隐藏字段，值为当前商品类型
         $form->hidden('type')->value($this->getProductType());
         $form->text('title', '商品名称')->rules('required');
+        $form->text('long_title', '商品长标题')->rules('required');
         $form->select('category_id', '类目')->options(function ($id) {
             $category = Category::find($id);
             if ($category) {
