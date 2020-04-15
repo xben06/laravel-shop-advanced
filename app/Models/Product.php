@@ -62,7 +62,7 @@ class Product extends Model
     {
         return $this->hasMany(ProductProperty::class);
     }
-    
+
     public function toESArray()
     {
         // 只取出需要的字段
